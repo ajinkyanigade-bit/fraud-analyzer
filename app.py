@@ -309,7 +309,6 @@ logger.info(f"Seeded {len(TRANSACTIONS)} sample transactions.")
 def dashboard():
     return render_template("index.html")
 
-# AFTER
 @app.route("/", methods=["GET"])
 def index():
     from flask import redirect
