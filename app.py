@@ -309,7 +309,13 @@ logger.info(f"Seeded {len(TRANSACTIONS)} sample transactions.")
 def dashboard():
     return render_template("index.html")
 
-@app.route("/",methods=["GET"])
+# AFTER
+@app.route("/", methods=["GET"])
+def index():
+    from flask import redirect
+    return redirect("/dashboard")
+
+@app.route("/health", methods=["GET"])
 def health():
     return jsonify({"service":"FraudSense AI","status":"running","model":fraud_model.info(),"timestamp":_now()})
 
